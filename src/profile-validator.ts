@@ -1,29 +1,32 @@
-type userProfile = {
-    id:number,
-    username:string,
-    settings?:{notifications:boolean}
+type UserProfile = {
+  id: number;
+  username: string;
+  settings?: {
+    notifications?: boolean;
+  };
+};
+
+const userWithoutSettings: UserProfile = {
+  id: 1,
+  username: "stephen",
+};
+
+const userWithSettingsNoNotifications: UserProfile = {
+  id: 2,
+  username: "grace",
+  settings: {},
+};
+
+const userWithNotifications: UserProfile = {
+  id: 3,
+  username: "daniel",
+  settings: { notifications: true },
+};
+
+function isNotified(user: UserProfile): boolean {
+  return user.settings?.notifications ?? false;
 }
 
-const userWithoutNOtifications:userProfile = {
-    id:1,
-    username:"stephen"
-}
-
-const userWithSettings:userProfile = {
-    id:2,
-    username:"stephen",
-}
-
-const userWithNotifications:userProfile = {
-    id:3,
-    username:"stephen",
-    settings:{notifications:true}
-}
-
-function isNotified(user:userProfile):boolean{
-    return user.settings?.notifications ?? false
-}
-
-console.log(userWithoutNOtifications.username, "isNotified:", isNotified(userWithoutNOtifications))
-console.log(userWithSettings.username, "has settings:", isNotified(userWithSettings))
-console.log(userWithNotifications.username, "isNotified:", isNotified(userWithNotifications))
+console.log(userWithoutSettings.username, "no settings:", isNotified(userWithoutSettings));
+console.log(userWithSettingsNoNotifications.username, "settings, no notifications:", isNotified(userWithSettingsNoNotifications));
+console.log(userWithNotifications.username, "notifications on:", isNotified(userWithNotifications));
