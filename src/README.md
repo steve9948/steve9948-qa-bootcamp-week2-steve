@@ -1,9 +1,5 @@
 ## TypeScript basics (Day 6)
 
-- `src/ts-basics/`: one file per topic from the Programming with Mosh tutorial (tuples, functions, objects, type aliases, union types, optional chaining).
-- `src/profile-validator.ts`: a typed `UserProfile` and an `isNotified()` function that safely returns `false` when `settings` or `notifications` is missing.
-
-Run any file with `npx tsx <path>`, for example `npx tsx src/profile-validator.ts`.
 
 ## What changed
 - Added `src/ts-basics/` with one file per topic from the Mosh tutorial: tuples, functions, objects, type aliases, union types and optional chaining.
