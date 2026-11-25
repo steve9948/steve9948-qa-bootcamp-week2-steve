@@ -11,8 +11,8 @@ console.log(`The area is: ${area}`); // Output: The area is: 50
 // a simple function that calculates the tax based on the amount and tax year
 function calculateTax(amount: number, taxYear: 2026): number {
     // if the tax year is less than 2027, apply a tax rate of 20%, otherwise apply a tax rate of 30%
-    return taxYear < 2027 ? amount * 1.2 : amount * 1.3;
+    return taxYear < 2027 ? amount * 0.2 : amount * 0.3;
 }
 // call the function with amount and tax year to demonstrate its functionality
 const tax = calculateTax(100, 2026);
-console.log(`The tax is: ${tax}`); // Output: The tax is: 120
+console.log(`The tax is: ${tax}`); // Output: The tax is: 20
