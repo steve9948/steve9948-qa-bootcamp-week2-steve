@@ -1,13 +1,21 @@
-What changed
-Added two Playwright API tests for the cart (create and add a product, and an unknown cart returning 404) with cleanup, a trace-viewer failure investigation, one combined suite, and a three-step README.
+# QA Bootcamp Week 2: Toolshop test suite
 
-Why
-To automate two Monday Postman requests with cleanup so tests don't leave carts behind or depend on each other, and so someone new can run the whole suite from a fresh clone.
+Playwright tests (TypeScript) for the Toolshop site and API.
 
-How to check
-1. Clone the repo and check out week2-day9.
-2. Follow the README: npm install, npx playwright install chromium, copy .env.example to .env.
-3. Run npm test. All tests should pass.
+## Run the tests
 
-Please check
-That the cart cleanup runs even when a check fails.
+1. Install: `npm install`, then `npx playwright install chromium`
+2. Copy `.env.example` to `.env`: `cp .env.example .env`
+3. Run the tests: `npm test`
+
+## What the suite covers
+
+- **UI tests** (`tests/`): home page title, product search, invalid login, and adding a product to the cart through page objects in `pages/`.
+- **API tests** (`tests/`): the products list, plus the cart (create a cart and add a product, and an unknown cart returns 404). Each test that creates a cart deletes it.
+- `features/cart.feature` is a plain-language description of the cart flow. It is not run by `npm test`.
+
+## Useful commands
+
+- Run one file: `npx playwright test tests/login.spec.ts`
+- Watch the browser: `npx playwright test --headed`
+- Record a trace: `npx playwright test --trace on`, then `npx playwright show-trace <path-to-trace.zip>`
