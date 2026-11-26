@@ -6,6 +6,7 @@ Feature: Shopping cart
   Background:
     Given the shopper is on the Toolshop home page
 
+  @automated
   Scenario: A shopper adds a product and sees it in the cart
     When the shopper opens the "Combination Pliers" product
     And the shopper adds 1 of it to the cart
