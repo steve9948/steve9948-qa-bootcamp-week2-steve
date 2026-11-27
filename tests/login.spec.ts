@@ -7,5 +7,9 @@ test('invalid login is rejected with an error message', async ({ page }) => {
   await page.getByLabel(/^password/i).fill('wrong-password');
   await page.getByRole('button', { name: 'Login' }).click();
 
+  //before (working)
   await expect(page.getByText('Invalid email or password')).toBeVisible();
+
+  // after (broken on purpose)
+  //await expect(page.getByText('Invalid credentials supplied')).toBeVisible();
 });
