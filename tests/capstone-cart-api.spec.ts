@@ -43,6 +43,15 @@ test.describe('Cart API capstone', () => {
       },
     });
     expect(addRes.status()).toBe(200);
+    
+    // 2. Deliberate break: pass an invalid product_id while expecting 200
+    // const addRes = await request.post(`${API_URL}/carts/${cartId}`, {
+    //   data: {
+    //     product_id: 'non-existent-product-id',
+    //     quantity,
+    //   },
+    // });
+    // expect(addRes.status()).toBe(200);
 
     // 3. Read the cart back and confirm the product and quantity are present
     const getRes = await request.get(`${API_URL}/carts/${cartId}`);
