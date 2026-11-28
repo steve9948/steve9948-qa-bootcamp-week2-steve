@@ -35,7 +35,7 @@ test.describe('Cart API capstone', () => {
     expect(typeof createdCart.id).toBe('string');
     cartId = createdCart.id;
 
-    // 2. Add the product to the cart
+    // // 2. Add the product to the cart
     const addRes = await request.post(`${API_URL}/carts/${cartId}`, {
       data: {
         product_id: productId,
@@ -43,7 +43,7 @@ test.describe('Cart API capstone', () => {
       },
     });
     expect(addRes.status()).toBe(200);
-    
+
     // 2. Deliberate break: pass an invalid product_id while expecting 200
     // const addRes = await request.post(`${API_URL}/carts/${cartId}`, {
     //   data: {
